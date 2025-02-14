@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Component Tester</title>
+    <script>
+        function getQueryParams() {
+            const params = new URLSearchParams(window.location.search);
+            return {
+                username: params.get("username") || "DefaultUser",
+                tenantId: params.get("tenantId") || "DefaultTenant"
+            };
+        }
+
+        document.addEventListener("DOMContentLoaded", () => {
+            const { username, tenantId } = getQueryParams();
+            
+            console.log("Username:", username);
+            console.log("Tenant ID:", tenantId);
+
+            if (window.MoodComponent) {
+                window.MoodComponent.init({ username, tenantId });
+            } else {
+                console.error("MoodComponent no está definido.");
+            }
+        });
+    </script>
+</head>
+<body>
+    <h1>Mood Component Tester</h1>
+    <p>Esta página carga el moodComponent JS con parámetros de la URL.</p>
+
+    <div id="mood-component"></div>
+
+    <script src="mood.js"></script>
+</body>
+</html>
