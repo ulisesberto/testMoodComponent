@@ -8,7 +8,7 @@
         function getQueryParams() {
             const params = new URLSearchParams(window.location.search);
             return {
-                username: params.get("username") || "DefaultUser",
+                userId: params.get("userId") || "DefaultUser",
                 tenantId: params.get("tenantId") || "DefaultTenant"
             };
         }
@@ -16,11 +16,11 @@
         document.addEventListener("DOMContentLoaded", () => {
             const { username, tenantId } = getQueryParams();
             
-            console.log("Username:", username);
+            console.log("UserId:", userId);
             console.log("Tenant ID:", tenantId);
 
             if (window.MoodComponent) {
-                window.MoodComponent.init({ username, tenantId });
+                window.MoodComponent.init({ userId, tenantId });
             } else {
                 console.error("MoodComponent no está definido.");
             }
