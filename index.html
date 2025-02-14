@@ -12,11 +12,16 @@
                 tenantId: params.get("tenantId") || "DefaultTenant"
             };
         }
+       const{userId, tenantId} = getQueryParams();
 
-        const moodInstance = new window.MoodComponent("mood-component", { userId, tenantId });
-        console.log(moodInstance)
-        moodInstance.MoodComponent();
-     
+        document.addEventListener("DOMContentLoaded", function () {
+        const component = new MoodComponent("mood-component", {
+            tenantId: "",
+            userId: "",
+        });
+
+        component.init();
+        });
     </script>
 </head>
 <body>
