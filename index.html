@@ -9,16 +9,17 @@
             const params = new URLSearchParams(window.location.search);
             return {
                 userId: params.get("userId") || "DefaultUser",
-                tenantId: params.get("tenantId") || "DefaultTenant"
+                tenantId: params.get("tenantId") || "DefaultTenant",
+                apiKey: params.get("apiKey") || "1234-5678-7899-7894"
             };
         }
-       const{userId, tenantId} = getQueryParams();
+       const{userId, tenantId, apiKey} = getQueryParams();
 
         document.addEventListener("DOMContentLoaded", function () {
         const component = new MoodComponent("mood-component", {
             tenantId: tenantId,
             userId: userId,
-            apiKey: "65456-456-56-456-456-54456-56-456"
+            apiKey: apiKey
         });
 
         component.init();
