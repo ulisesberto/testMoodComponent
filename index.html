@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -13,19 +14,20 @@
                 apiKey: params.get("apiKey") || "1234-5678-7899-7894"
             };
         }
-       const{userId, tenantId, apiKey} = getQueryParams();
+        const { userId, tenantId, apiKey } = getQueryParams();
 
         document.addEventListener("DOMContentLoaded", function () {
-        const component = new MoodComponent("mood-component", {
-            tenantId: tenantId,
-            userId: userId,
-            apiKey: apiKey
-        });
+            const component = new MoodComponent("mood-component", {
+                tenantId: tenantId,
+                userId: userId,
+                apiKey: apiKey
+            });
 
-        component.init();
+            component.init();
         });
     </script>
 </head>
+
 <body>
     <h1>Mood Component Tester</h1>
     <p>Esta página carga el moodComponent JS con parámetros de la URL.</p>
@@ -34,4 +36,5 @@
 
     <script src="mood.js"></script>
 </body>
+
 </html>
