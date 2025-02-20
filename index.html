@@ -32,9 +32,18 @@
     <h1>Mood Component Tester</h1>
     <p>Esta página carga el moodComponent JS con parámetros de la URL.</p>
     <p> Ejemplo: lovely-pixie-b853c7.netlify.app/?userId=Juan&tenantId=12345&apiKey=123-123-123-123-123</p>
+<div> si el componente no aparece hay 2 opciones:
+    1- el componente no debe mostrarse a ese usuario porque ya envió un estado de animo hace menos de cierto tiempo configurado en el gathering,
+     eso se puede verse ingresando como super admin al backoffice => clients => boton gathering en la grilla de clientes
+    2 - no muestra debido a error porque el tenant no existe, el usuario no existe, o no coincide el tenant ingresado con el tenant del usuario ingresado, o el apikey es incorrecta
+
+    para conocer el apikey entrar como super admin al backoffice => clients => client edit, abajo hay un input text disableado que es el apikey, tambien podemos restaurarla para que cambie (hay que darle guardar)
+</div>
+    
     <div id="mood-component"></div>
 
     <script src="mood.js"></script>
+    <link rel="stylesheet" href="./mood.css" />
 </body>
 
 </html>
